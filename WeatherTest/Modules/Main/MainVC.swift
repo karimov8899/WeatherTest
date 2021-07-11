@@ -109,7 +109,9 @@ class MainVC: UIViewController, CLLocationManagerDelegate, UISearchControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector:#selector(avtiveMethod), name: UIApplication.didBecomeActiveNotification, object: nil)
-        locationManager.delegate = self
+        locationManager.delegate = self 
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
         checkLocationStatus()
         setUpViews()
         setUpConstraints()
